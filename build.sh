@@ -61,5 +61,5 @@ echo "${BLUE}== skeleton ==${RESET}"
 
 ./configure
 make check
-echo "${GREEN}*** skelton built.${RESET}"
+echo "${GREEN}*** skeleton built.${RESET}"
 echo "${GREEN}Next step: sudo make install${RESET}"
