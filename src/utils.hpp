@@ -13,27 +13,27 @@
 #include <string>
 #include <vector>
 
-typedef std::vector<uint8_t> byte_vector;
-typedef std::vector<std::string> string_vector;
+typedef std::vector<uint8_t> ByteVector;
+typedef std::vector<std::string> StringVector;
 
-std::string data_to_hex(const byte_vector& in);
+std::string data_to_hex(const ByteVector& in);
 uint8_t hex_digit_to_bin(char hex);
 
-byte_vector hex_to_data(const std::string& hex);
+ByteVector hex_to_data(const std::string& hex);
 
-byte_vector data_to_base(const byte_vector& buf, size_t base);
+ByteVector data_to_base(const ByteVector& buf, size_t base);
 
-std::string data_to_alphabet(const byte_vector &in,
+std::string data_to_alphabet(const ByteVector &in,
     size_t base,
     std::string (to_alphabet)(size_t));
 
-std::string data_to_ints(const byte_vector &in,
+std::string data_to_ints(const ByteVector &in,
     size_t low, size_t high, const std::string &separator);
 
-byte_vector digits_to_data(const std::string& in, size_t low, size_t high);
+ByteVector digits_to_data(const std::string& in, size_t low, size_t high);
 
-std::string join(const string_vector &strings, const std::string &separator);
-string_vector split(const std::string& s, const char& separator);
+std::string join(const StringVector &strings, const std::string &separator);
+StringVector split(const std::string& s, const char& separator);
 
 std::string to_lower(const std::string& s);
 bool has_prefix(const std::string& s, const std::string& prefix);
@@ -54,7 +54,7 @@ void append(std::vector<T>& target, const std::vector<T>& source) {
     target.insert(target.end(), source.begin(), source.end());
 }
 
-string_vector partition(const std::string& string, size_t size);
+StringVector partition(const std::string& string, size_t size);
 
 int days_since_epoch();
 

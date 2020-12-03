@@ -14,7 +14,7 @@
 
 using namespace std;
 
-string data_to_hex(const byte_vector& in) {
+string data_to_hex(const ByteVector& in) {
     auto hex = "0123456789abcdef";
     string result;
     for(auto c: in) {
@@ -36,8 +36,8 @@ uint8_t hex_digit_to_bin(char hex) {
     }
 }
 
-byte_vector hex_to_data(const string& hex) {
-    byte_vector result;
+ByteVector hex_to_data(const string& hex) {
+    ByteVector result;
 
     auto len = hex.length();
     if(len % 2 != 0) {
@@ -54,8 +54,8 @@ byte_vector hex_to_data(const string& hex) {
     return result;
 }
 
-byte_vector data_to_base(const byte_vector& buf, size_t base) {
-    byte_vector result;
+ByteVector data_to_base(const ByteVector& buf, size_t base) {
+    ByteVector result;
     result.reserve(buf.size());
     for(auto b: buf) {
         result.push_back(roundf(b / 255.0 * (base - 1)));
@@ -63,7 +63,7 @@ byte_vector data_to_base(const byte_vector& buf, size_t base) {
     return result;
 }
 
-string data_to_alphabet(const byte_vector &in,
+string data_to_alphabet(const ByteVector &in,
     size_t base,
     string (to_alphabet)(size_t))
 {
@@ -78,7 +78,7 @@ string data_to_alphabet(const byte_vector &in,
     return result;
 }
 
-string data_to_ints(const byte_vector &in,
+string data_to_ints(const ByteVector &in,
     size_t low, size_t high, const string &separator)
 {
     if (!(0 <= low && low < high && high <= 255)) {
@@ -99,8 +99,8 @@ string data_to_ints(const byte_vector &in,
     return result;
 }
 
-byte_vector digits_to_data(const string& in, size_t low, size_t high) {
-    byte_vector result;
+ByteVector digits_to_data(const string& in, size_t low, size_t high) {
+    ByteVector result;
     for(auto c: in) {
         int n = c - '0';
         if(n < low || n > high) {
@@ -111,7 +111,7 @@ byte_vector digits_to_data(const string& in, size_t low, size_t high) {
     return result;
 }
 
-string join(const string_vector &strings, const string &separator) {
+string join(const StringVector &strings, const string &separator) {
     ostringstream result;
     bool first = true;
     for(auto s: strings) {
@@ -124,8 +124,8 @@ string join(const string_vector &strings, const string &separator) {
     return result.str();
 }
 
-string_vector split(const string& s, const char& separator) {
-	string_vector result;
+StringVector split(const string& s, const char& separator) {
+	StringVector result;
 	string buf;
 
 	for(auto c: s) {
@@ -167,8 +167,8 @@ string drop(const string& s, size_t count) {
     return string(s.begin() + count, s.end());
 }
 
-string_vector partition(const string& s, size_t size) {
-    string_vector result;
+StringVector partition(const string& s, size_t size) {
+    StringVector result;
     auto remaining = s;
     while(remaining.length() > 0) {
         result.push_back(take(remaining, size));

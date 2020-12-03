@@ -23,7 +23,7 @@ class RawParams {
 public:
     std::string seed;
 
-    string_vector args;
+    StringVector args;
 };
 
 class Params {
@@ -34,7 +34,7 @@ public:
     void validate();
 
     RawParams raw;
-    string_vector input;
+    StringVector input;
     std::string output;
     struct argp_state* state;
 
@@ -43,5 +43,5 @@ public:
 
     std::string get_one_argument();
     std::string get_combined_arguments();
-    string_vector get_multiple_arguments();
+    StringVector get_multiple_arguments();
 };

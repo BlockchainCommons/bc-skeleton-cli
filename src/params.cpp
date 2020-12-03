@@ -78,6 +78,6 @@ string Params::get_combined_arguments() {
     return join(input, " ");
 }
 
-string_vector Params::get_multiple_arguments() {
+StringVector Params::get_multiple_arguments() {
     return input;
 }
