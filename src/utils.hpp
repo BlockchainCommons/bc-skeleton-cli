@@ -21,17 +21,6 @@ uint8_t hex_digit_to_bin(char hex);
 
 ByteVector hex_to_data(const std::string& hex);
 
-ByteVector data_to_base(const ByteVector& buf, size_t base);
-
-std::string data_to_alphabet(const ByteVector &in,
-    size_t base,
-    std::string (to_alphabet)(size_t));
-
-std::string data_to_ints(const ByteVector &in,
-    size_t low, size_t high, const std::string &separator);
-
-ByteVector digits_to_data(const std::string& in, size_t low, size_t high);
-
 std::string join(const StringVector &strings, const std::string &separator);
 StringVector split(const std::string& s, const char& separator);
 
